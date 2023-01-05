@@ -9,20 +9,16 @@ namespace DIDBackend.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
-        private readonly ICustomerService _customerService;
-
-        public AccountController(IAccountService accountService, ICustomerService customerService)
+        public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
-            _customerService = customerService;
         }
 
         [HttpGet("{accountId}/balance")]
-        public async Task<IActionResult> GetBalanceByDate(string accountId, [FromQuery] DateTime date)
+        public async Task<IActionResult> GetBalance(string accountId, [FromQuery] DateTime? date)
         {
             
-            var customerAccountDetails = await _customerService.GetCustomerAccountInfo(); 
-            var result = _accountService.GetAccountEODBalance(customerAccountDetails, date, accountId);
+            var result = _accountService.GetAccountEODBalance(date, accountId);
             if (result == null) return NoContent();
             return Ok(result);
         }

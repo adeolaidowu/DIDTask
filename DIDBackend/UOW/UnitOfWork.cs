@@ -6,7 +6,5 @@ namespace DIDBackend.UOW
     public class UnitOfWork : IUnitOfWork
     {
         public IAccountRepository AccountRepository => new AccountRepository();
-
-        public ICustomerRepository CustomerRepository => new CustomerRepository();
     }
 }

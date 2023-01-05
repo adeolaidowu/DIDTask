@@ -5,6 +5,5 @@ namespace DIDBackend.UOW
     public interface IUnitOfWork
     {
         IAccountRepository AccountRepository { get; }
-        ICustomerRepository CustomerRepository { get; }
     }
 }

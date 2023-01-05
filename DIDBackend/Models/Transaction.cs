@@ -14,9 +14,5 @@
         public EnrichedData EnrichedData { get; set; }
     }
 
-    public enum TransactionType
-    {
-        Debit,
-        Credit
-    }
+    
 }

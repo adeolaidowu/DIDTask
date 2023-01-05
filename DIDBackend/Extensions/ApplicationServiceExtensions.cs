@@ -11,10 +11,8 @@ namespace DIDBackend.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             return services;
         }
